@@ -19,9 +19,8 @@ def rx(matrix):
         x2 = xp[2: , 1:-1] #shift up
         x3 = xp[1:-1, 0:-2] #shift left
         x4 = xp[1:-1, 2: ] # shift right
-        x5 = xp[1:-1, 1:-1] # center
         xS = x1 + x2 + x3 + x4
-        rx_matrices = [xS, x1, x2, x3, x4, x5] 
+        rx_matrices = [xS, x1, x2, x3, x4] 
         return rx_matrices
     else:
         print("Matrix is not square")

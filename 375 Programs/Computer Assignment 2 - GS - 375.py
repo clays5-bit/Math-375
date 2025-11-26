@@ -3,10 +3,10 @@ import Matrix_Its as mi
 import pandas as pd
 import matplotlib.pyplot as plt
 
-matrix1_csv = r"C:\Users\clays\Documents\GitHub\Math-375\375 Programs\matrix1.csv"
-matrix2_csv = r"C:\Users\clays\Documents\GitHub\Math-375\375 Programs\matrix2.csv"
-#matrix1_csv = "matrix1.csv"
-#matrix2_csv = "matrix2.csv"
+#matrix1_csv = r"C:\Users\Sean's Desktop\Documents\GitHub\Math-375\375 Programs\matrix1.csv"
+#matrix2_csv = r"C:\Users\Sean's Desktop\Documents\GitHub\Math-375\375 Programs\matrix2.csv"
+matrix1_csv = "matrix1.csv"
+matrix2_csv = "matrix2.csv"
 tol = .0005
 
 matrix1 = np.loadtxt(matrix1_csv, delimiter=',')
