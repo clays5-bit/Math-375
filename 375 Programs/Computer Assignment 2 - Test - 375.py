@@ -9,7 +9,5 @@ tol = .0005
 matrix_j, data_j = mi.jacobian(matrix_rand, .05, tol)
 matrix_gs, data_gs = mi.gauss_seidel(matrix_rand, .05, tol)
 
-print(matrix_j)
 print(data_j)
-print(matrix_gs)
 print(data_gs)
