@@ -29,20 +29,24 @@ def jacobian(matrix, lamb, tol):
     rx_matrix = rx(matrix)
     matrix_soln1 = (1/(1+4*lamb))*(matrix + lamb*(rx_matrix[0]))
     residual = np.linalg.norm(matrix_soln1-matrix)
-    n = 0
+    n = 0 
+    data = pd.DataFrame([n, residual])
     while residual > tol and n < 100:
         rx_matrix = rx(matrix_soln1)
         matrix_soln2 = (1/(1+4*lamb))*(matrix + lamb*(rx_matrix[0]))
         residual = np.linalg.norm(matrix_soln2-matrix_soln1)
         matrix_soln1 = matrix_soln2.copy()
         n += 1
-    return matrix_soln1
+        more_data = pd.Series([n], [residual])
+        data = pd.concat([data, more_data], ignore_index=True)
+    return matrix_soln1, data
 
 def gauss_seidel(matrix, lamb, tol):
     matrix_soln2 = matrix.copy()
     matrix_dim = matrix.shape
     residual = tol + 1
     n = 0
+    data = pd.DataFrame([n, residual])
     while residual > tol and n < 100:
         matrix_soln1 = matrix_soln2.copy()
         for i in range(matrix_dim[0]):
@@ -54,4 +58,6 @@ def gauss_seidel(matrix, lamb, tol):
                 matrix_soln2[i,j] = (1/(1+lamb*4))*(matrix[i,j]+lamb*(x1+x2+x3+x4))
         residual = np.linalg.norm(matrix_soln2-matrix_soln1)
         n += 1
-    return matrix_soln2
+        more_data = pd.Series([n], [residual])
+        data = pd.concat([data, more_data], ignore_index=True)
+    return matrix_soln2, data
