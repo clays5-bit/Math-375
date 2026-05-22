@@ -68,6 +68,7 @@ def HHdvdt(v, n, m, h, eCurrent):
 
 def equationset(gateset, t):
     v, n, m, h = gateset
+    #injected current is in microamps
     if t >= 250 and t <= 350:
         eCurrent = 2
     elif t >= 20 and t <= 120:
